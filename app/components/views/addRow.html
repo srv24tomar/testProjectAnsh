@@ -1,0 +1,34 @@
+<div class="center">
+
+	<div>
+			<div class="editCells">
+				<label>Id</label>
+				<input ng-model="appendData.id" placeholder="id"></input>
+			</div>
+			<div class="gap">
+				<label>Name</label>
+				<input ng-model="appendData.name" ng-minLength = '4' placeholder="name"></input>
+			</div>
+			<div class="gap">
+				<label>Phone</label>
+				<input type = 'number' ng-model="appendData.phone"  placeholder="phone"></input>
+			</div>
+			<div class="gap">
+				<label>City</label>
+				<input ng-model="appendData.address.city" placeholder="city"></input>
+			</div>
+			<div class="gap">
+				<label>Address 1</label>
+				<input ng-model="appendData.address.address_line1" placeholder="address 1"></input>
+			</div>
+			<div class="gap">
+				<label>Address 2</label>
+				<input ng-model="appendData.address.address_line2" placeholder="address 2"></input>
+			</div>
+			<div class="gap">
+				<label>Postal Address</label>
+				<input ng-model="appendData.address.postal_code" placeholder="postal code"></input>
+			</div>
+			<button class="center gap" ng-click="appendRow(appendData)">Submit</button>
+	</div>
+</div>

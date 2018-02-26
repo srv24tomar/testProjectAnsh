@@ -1,0 +1,61 @@
+	<h2 class="center">AngularJS Task</h2>
+	
+	<div class="center">
+		<input type="text" value="" class="center " placeholder="Search..." ng-model="query">
+	</div>
+	
+	<div class="center gap">
+		<table ng-table="tableParams" class="table center tableBackGround" show-filter="true">
+			<tr ng-repeat="user in $root.userData| filter: search" ng-class="editClicked ? 'selected':''">
+				<td title="'Id'" sortable="'id'">{{user.id}}</td>
+				<td title="'Name'" sortable="'name'">{{user.name}}</td>
+				<td title="'Phone'" sortable="'phone'">{{user.phone}}</td>
+				<td title="'City'" sortable="'address.city'">{{user.address.city}}</td>
+				<td title="'Address 1'" sortable="'address.address_line1'">{{user.address.address_line1}}</td>
+				<td title="'Address 2'" sortable="'address.address_line2'">{{user.address.address_line2}}</td>
+				<td title="'Postal Code'" sortable="'address.postal_code'">{{user.address.postal_code}}</td>
+				<td title="'Action'"><button title="'Edit'" ng-click="editRow( user, $index)">Edit</button></td>
+			</tr>
+		</table>
+		<div class="center editBlock" ng-if="editClicked">
+			<label class="">Edit {{update.name}} details</label>
+			<div>
+				<div class="editCells gap">
+					<label>Id</label>
+					<input ng-model="update.id" placeholder="id"></input>
+				</div>
+				<div class="gap">
+					<label>Name</label>
+					<input class="editCells" ng-model="update.name" placeholder="name"></input>
+				</div>
+				<div class="gap">
+					<label>Phone</label>
+					<input class="editCells" ng-model="update.phone" placeholder="phone"></input>
+				</div>
+				<div class="gap">
+					<label>City</label>
+					<input class="editCells" ng-model="update.address.city" placeholder="city"></input>
+				</div>
+				<div class="gap">
+					<label>Address 1</label>
+					<input class="editCells" ng-model="update.address.address_line1" placeholder="address 1"></input>
+				</div>
+				<div class="gap">
+					<label>Address 2</label>
+					<input class="editCells" ng-model="update.address.address_line2" placeholder="address 2"></input>
+				</div>
+				<div class="gap">
+					<label>Postal Address</label>
+					<input class="editCells" ng-model="update.address.postal_code" placeholder="postal code"></input>
+				</div>
+
+				<button title="'Edit'" class="center gap width" ng-click="updateRow(update)">Update</button>
+				
+			</div>
+	
+		</div>
+	</div>
+	</div>
+	<div class="center" ng-if="!editClicked">
+		<a href="#/employees/add">Add a user</a>
+	</div>
